@@ -5,7 +5,24 @@
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="CSS/main.css">
-    
+    <script>
+      var data = null;
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+        }
+      });
+
+      xhr.open("GET", "https://api.collectapi.com/economy/cripto");
+      xhr.setRequestHeader("content-type", "application/json");
+      xhr.setRequestHeader("authorization", "apikey your_token");
+
+      xhr.send(data);
+    </script>
   </head>
   <body>
     
@@ -26,40 +43,17 @@
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <svg class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-            <div class="overlay-image" style="background-image:url(./resimler/saat_kulesi.jpg);"></div>
+            <div class="overlay-image" style="background-image:url(./resimler/osmangazi.jpg);"></div>
             <div class="container" >
              
               <div class="carousel-caption text-start"  >
-                <h1>İzmit Saat Kulesi</h1>
-        
-                <p><a class="btn btn-lg btn-primary" href="#">Detaylı</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-            <div class="overlay-image" style="background-image:url(./resimler/sekapark.jpg);"></div>
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Sekapark</h1>
-                
-                <p><a class="btn btn-lg btn-primary" href="#">Daha Fazla</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-            <div class="overlay-image" style="background-image:url(./resimler/osmangazi.jpg);"></div>
-            <div class="container">
-              <div class="carousel-caption text-end">
-                <h1>Ormanya</h1>
-                <p>Some representative placeholder content for the third slide of this carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                <h1>Example headline.</h1>
+                <p>Some representative placeholder content for the first slide of the carousel.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
               </div>
             </div>
           </div>
@@ -71,6 +65,17 @@
                 <h1>Another example headline.</h1>
                 <p>Some representative placeholder content for the second slide of the carousel.</p>
                 <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+            <div class="overlay-image" style="background-image:url(./resimler/osmangazi.jpg);"></div>
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1>One more for good measure.</h1>
+                <p>Some representative placeholder content for the third slide of this carousel.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
               </div>
             </div>
           </div>
@@ -87,11 +92,30 @@
     <section class="container-fluid padding">
       <div class="row giris text-center">
         <div class="col-12">
-          <h1><b>KOCAELİ</b></h1>
+          <script>
+            
+            var burl = "https://api.binance.com";
+            
+            var query = '/api/v1/ticker/24hr';
+                
+            query += '?symbol=BTCUSDT';
+            
+            var url = burl + query;
+                
+            var ourRequest = new XMLHttpRequest();
+            
+            ourRequest.open('GET',url,true);
+            ourRequest.onload = function(){
+                console.log(ourRequest.responseText);
+            }
+            ourRequest.send();    
+                
+          
+          </script>
         </div>
         <hr>
-        <div class="col-12">
-          <h2>Kocaeli Nüfusu: <b>2.037.203</b></h2>
+        <div class= >
+          <h2></h2>
           <p class="lead"> Kocaeli Nüfusu 2021
             Kocaeli 2021 nüfusu, tahmini verilere göre 2.037.203.
             Bu nüfus verisi, eski yıllarıdaki nüfus artış hızlarına göre tahmini hesaplanmıştır. Kocaeli 2021 resmi nüfus bilgileri 2022 yılının başında açıklanacaktır.</p>
@@ -112,7 +136,7 @@
           </p>
           <p>Daha fazla bilgi için ilgili sayfaya gidiniz.</p>
 
-          <a href="saatkulesi.html" class="btn btn-primary">Daha Fazla</a><br>
+          <a href="#saatkulesi.html" class="btn btn-primary">Daha Fazla</a><br>
         </div>
     <div class="col-lg-6">
       <img src="resimler/saatkulesi.jpg" alt="saat kulesi" class="img-fluid"><br><br>
@@ -133,7 +157,7 @@
           </p>
           <p>Daha fazla bilgi için ilgili sayfaya gidiniz.</p>
 
-          <a href="kartepe.html" class="btn btn-primary">Daha Fazla</a><br>
+          <a href="#kartepe.html" class="btn btn-primary">Daha Fazla</a><br>
         </div>
     <div class="col-lg-6">
       <img src="resimler/kartepe.jpg" alt="kartepe" class="img-fluid"><br><br>
@@ -153,7 +177,7 @@
           </p>
           <p>Daha fazla bilgi için ilgili sayfaya gidiniz.</p>
 
-          <a href="sekapark.html" class="btn btn-primary">Daha Fazla</a><br>
+          <a href="#sekapark.html" class="btn btn-primary">Daha Fazla</a><br>
         </div>
     <div class="col-lg-6">
       <img src="resimler/sekapark.jpg" alt="sekapark" class="img-fluid"><br><br>
