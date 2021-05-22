@@ -1,35 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="CSS/main.css">
-    <script>
-      var data = null;
-
-      var xhr = new XMLHttpRequest();
-      xhr.withCredentials = true;
-
-      xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === this.DONE) {
-          console.log(this.responseText);
-        }
-      });
-
-      xhr.open("GET", "https://api.collectapi.com/economy/cripto");
-      xhr.setRequestHeader("content-type", "application/json");
-      xhr.setRequestHeader("authorization", "apikey your_token");
-
-      xhr.send(data);
-    </script>
   </head>
   <body>
     
 
     <ul class="topnav">
     <li class="active"><img src="resimler/BK_logo.jpg" alt="Burak Kozluca" width="50px" height="50px"></li>
-    <li><a href="hakkimda.html">Hakkımda</a></li>
+    <li><a href="index.html">Hakkımda</a></li>
     <li><a href="ozgecmis.html">Özgeçmiş</a></li>
     <li><a href="sehrim.html">Şehrim</a></li>
     <li><a href="ilgialan.html">İlgi Alanlarım</a></li>
@@ -89,29 +72,24 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      <div class="havadurumuapp">
+        <div class="havadurumuheader">
+          <h1>Hava Durumu</h1>
+          <input type="text" id="searchbar" placeholder="şehir giriniz...">
+        </div>
+        <div class="content">
+          <div class="city">İstanbul, TR</div>
+          <div class="temp">15°C</div>
+          <div class="desc">Güneşli</div>
+          <div class="minmax">14°C / 15°C</div>
+
+        </div>
+      </div>
+      
     <section class="container-fluid padding">
       <div class="row giris text-center">
         <div class="col-12">
-          <script>
-            
-            var burl = "https://api.binance.com";
-            
-            var query = '/api/v1/ticker/24hr';
-                
-            query += '?symbol=BTCUSDT';
-            
-            var url = burl + query;
-                
-            var ourRequest = new XMLHttpRequest();
-            
-            ourRequest.open('GET',url,true);
-            ourRequest.onload = function(){
-                console.log(ourRequest.responseText);
-            }
-            ourRequest.send();    
-                
           
-          </script>
         </div>
         <hr>
         <div class= >
@@ -123,6 +101,9 @@
       </div>
       <hr>
     </section>
+    <div class="havadurumu.php">
+      
+    </div>
 
     <article class="container-fluid padding">
       <div class="row padding">
