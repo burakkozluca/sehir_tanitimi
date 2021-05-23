@@ -1,16 +1,115 @@
 <!DOCTYPE html>
-<html lang="tr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="CSS/main.css">
-  </head>
-  <body>
-    
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Covid19 Stats</title>
+ 
+<link href="CSS/main.css" rel="stylesheet" />
+<link href="CSS/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet"  href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css"/>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>
 
-    <ul class="topnav">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<link rel="icon" href="resimler/BK_logo.ico" type="image/x-icon">
+
+<style>
+  body,
+html {
+  overflow-x: hidden;
+  padding-right: 0 !important; }
+  
+html {
+  font-family:Roboto,sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  
+body {
+  font-size: 1rem;
+  font-weight: initial;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased; 
+  padding: 0;
+  margin: 0;}
+.table {
+width: 100%;
+margin-bottom: 1rem;
+color: #212529; }
+ 
+.table thead th {
+border-top: 0;
+border-bottom-width: 1px;
+font-weight: 600; }
+ 
+.table th,
+.table td {
+vertical-align: middle;
+font-weight: 500;
+line-height: 1;
+white-space: nowrap; }
+ 
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; }
+ 
+.dataTable thead th{
+ white-space: normal !important;
+}
+.display_table_responsiveness{
+ display:inline-table;
+}
+th {
+  border-top: 1px solid #cdd4e0 !important;
+  border-bottom: 1px solid #cdd4e0 !important;
+  border-right: 1px solid #cdd4e0 !important;
+  text-align:center;
+}
+ 
+th:first-child {
+  border-left: 1px solid #cdd4e0;
+}
+table tr:nth-child(even) td{
+    background-color: #67C8FF;
+}
+table tr:nth-child(odd) td{
+    background-color: white;
+}
+/*# dead cases */
+#tblCovidData td:nth-child(6):not(:empty)
+{
+  background-color:red;
+  color:#ffffff;
+}
+/*# new cases */
+#tblCovidData td:nth-child(4):not(:empty)
+{
+  background-color:#EED202;
+  color:black;
+}
+/*# new recovered */
+#tblCovidData td:nth-child(8):not(:empty)
+{
+  background-color:#00FF00;
+  color:black;
+}
+table td:not(:first-child){text-align:right;}
+table.dataTable td.dataTables_empty {
+    text-align: center;
+    border-right: none !important;
+    border-left: none !important;
+}
+</style>
+
+
+</head>
+<body>
+  <ul class="topnav">
     <li class="active"><img src="resimler/BK_logo.jpg" alt="Burak Kozluca" width="50px" height="50px"></li>
     <li><a href="index.html">Hakkımda</a></li>
     <li><a href="ozgecmis.html">Özgeçmiş</a></li>
@@ -20,197 +119,132 @@
     <li class="right"><a href="giris.html">Giriş</a></li>
     <li class="right"><a href="iletisim.html">İletişim</a></li>
     </ul>
-
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-            <div class="overlay-image" style="background-image:url(./resimler/osmangazi.jpg);"></div>
-            <div class="container" >
-             
-              <div class="carousel-caption text-start"  >
-                <h1>Example headline.</h1>
-                <p>Some representative placeholder content for the first slide of the carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-            <div class="overlay-image" style="background-image:url(./resimler/osmangazi.jpg);"></div>
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Some representative placeholder content for the second slide of the carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-            <div class="overlay-image" style="background-image:url(./resimler/osmangazi.jpg);"></div>
-            <div class="container">
-              <div class="carousel-caption text-end">
-                <h1>One more for good measure.</h1>
-                <p>Some representative placeholder content for the third slide of this carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      <div class="havadurumuapp">
-        <div class="havadurumuheader">
-          <h1>Hava Durumu</h1>
-          <input type="text" id="searchbar" placeholder="şehir giriniz...">
-        </div>
-        <div class="content">
-          <div class="city">İstanbul, TR</div>
-          <div class="temp">15°C</div>
-          <div class="desc">Güneşli</div>
-          <div class="minmax">14°C / 15°C</div>
-
-        </div>
-      </div>
+<div class="table-responsive" >  
+<table class="display_table_responsiveness cell-border table table-hover"
+       id="tblCovidData" width="55%">
+ <thead>
+ <tr style="background-color:#76528BFF;letter-spacing: .3px; color:white;">
+  <th class="no-sort" colspan="9">COVID-19 Türkiye</th>
+ </tr>
+ <tr style="background-color:#FF9900;letter-spacing: .3px;">
+  <th width="10%" style="color:black" class="no-sort">İstatistik</th>
+  <th width="5%" style="color:black" class="no-sort">Toplam Vaka</th>
+  <th width="5%" style="color:black" class="no-sort">Aktif Vaka</th>
+  <th width="5%" style="color:black" class="no-sort">Yeni Vaka</th>
+  <th width="5%" style="color:black" class="no-sort">Toplam Ölüm</th>
+  <th width="5%" style="color:black" class="no-sort">Yeni Ölüm</th>
+  <th width="5%" style="color:black" class="no-sort">Toplam Test</th>
+  <th width="5%" style="color:black" class="no-sort">Yeni Test</th>
+  <th width="10%" style="color:black" class="no-sort">Son güncelleme</th>
+ </tr>
+ </thead>
+ <tbody>        
+ </tbody> 
+</table>
+</div> 
+</body>
+<script type="text/javascript">
+window.onload = function() {
+ setTimeout(function(){ getData();}, 10);
+}
+$(document).ready(function() { 
+ $(function(){
+   $("#tblCovidData").dataTable({
+       "dom": '<"top"f>rt<"bottom"lip><"clear">',
+       "order": [],
+    "columnDefs": [ {
+     "targets": 'no-sort',
+     "orderable": false } ],
+       "oLanguage": {
+       "sEmptyTable": "",
+           "sInfoEmpty": "",
+            "sZeroRecords": ""},
+        "bPaginate": false,
+        "bFilter": false,
+        "bInfo": false
+   });
       
-    <section class="container-fluid padding">
-      <div class="row giris text-center">
-        <div class="col-12">
-          
-        </div>
-        <hr>
-        <div class= >
-          <h2></h2>
-          <p class="lead"> Kocaeli Nüfusu 2021
-            Kocaeli 2021 nüfusu, tahmini verilere göre 2.037.203.
-            Bu nüfus verisi, eski yıllarıdaki nüfus artış hızlarına göre tahmini hesaplanmıştır. Kocaeli 2021 resmi nüfus bilgileri 2022 yılının başında açıklanacaktır.</p>
-        </div>
-      </div>
-      <hr>
-    </section>
-    <div class="havadurumu.php">
-      
-    </div>
+   });
+});
+function getData()
+{ 
+let table = document.getElementById('tblCovidData');
+$.ajax
+({
+ type : 'GET',
+  url : "https://covid-19-india-data-by-zt.p.rapidapi.com/GetIndiaStateWiseData",
+        headers: {'x-rapidapi-host': 'covid-19-india-data-by-zt.p.rapidapi.com',
+        'x-rapidapi-key': "8250200e9fmsha261d9bbf83aa4bp151266jsn624ebc232528"},
 
-    <article class="container-fluid padding">
-      <div class="row padding">
-        <div class= "col-lg-6">
-          <h2>Kocaeli'de Gezilecek Yerler</h2><br>
-          <h3>1. İzmit Saat Kulesi </h3>
-          <p>İzmit’in Kemalpaşa Mahallesi’nde bulunan saat kulesi, 
-            İzmit Mutasarrıfı Musa Kazım bey tarafından Sultan II. Abdülhamid’in tahta çıkışının 
-            25.yıldönümü anısına, Mimar Vedat Tek Bey’e, 
-            1900 (1901) yılında yaptırılmıştır.
-          </p>
-          <p>Daha fazla bilgi için ilgili sayfaya gidiniz.</p>
-
-          <a href="#saatkulesi.html" class="btn btn-primary">Daha Fazla</a><br>
-        </div>
-    <div class="col-lg-6">
-      <img src="resimler/saatkulesi.jpg" alt="saat kulesi" class="img-fluid"><br><br>
-    </div>   
-    </div>
-    </article>
-    <hr class="my-4">
-    <article class="container-fluid padding">
-      <div class="row padding">
-        <div class= "col-lg-6">
-          
-          <h3>2. Kartepe Dağı</h3>
-          <p>Kartepe, eski ismi Kel Tepe, İzmit'in güneydoğusunda, 
-            Samanlı Dağları silsilesinin en yüksek noktası 1601 m yüksekliğinde Marmara Bölgesi'nin ikinci en yüksek dağıdır. 
-            En rahat ulaşım Suadiye beldesinden sağlanır. 
-            Zirvesinde kurulan 
-            Kartepe Kayak Tesisleri (Green Park Otel) ile turizm yönünden de gelişmiştir.
-          </p>
-          <p>Daha fazla bilgi için ilgili sayfaya gidiniz.</p>
-
-          <a href="#kartepe.html" class="btn btn-primary">Daha Fazla</a><br>
-        </div>
-    <div class="col-lg-6">
-      <img src="resimler/kartepe.jpg" alt="kartepe" class="img-fluid"><br><br>
-    </div>   
-    </div>
-    </article>
-    <hr class="my-4">
-    <article class="container-fluid padding">
-      <div class="row padding">
-        <div class= "col-lg-6">
-          
-          <h3>3. Seka Park</h3>
-          <p>Seka Park İzmit şehir merkezinde sahile sıfır bir alanda, 
-            Türkiye’nin en büyük endüstriyel dönüşüm projelerinden biri olan 
-            eski Seka Kâğıt Fabrikası arazisindedir. 
-            Dünya’nın en büyük kent parklarından biridir.
-          </p>
-          <p>Daha fazla bilgi için ilgili sayfaya gidiniz.</p>
-
-          <a href="#sekapark.html" class="btn btn-primary">Daha Fazla</a><br>
-        </div>
-    <div class="col-lg-6">
-      <img src="resimler/sekapark.jpg" alt="sekapark" class="img-fluid"><br><br>
-    </div>   
-    </div>
-    </article>
-    <hr class="my-4">
-    <article class="container-fluid padding">
-      <div class="row video text-center">
-        <div class="col-12">
-          <h2 class="display-4">Son Youtube Videom</h2><hr>
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe id="video_1" class="embed-responsive-item" src="https://www.youtube.com/embed/umwIwJjb5OE" allowfullscreen></iframe>
-        </div>
-        </div>
-      </div>
-      <hr>
-    </article>
-
-    <article class="container-fluid padding">
-        <div class="row baglanti text-center padding">
-          <div class="col-12">
-            <h2 id="baglanti">Bağlantılar</h2>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-1">
-              <a href="https://www.youtube.com/channel/UCpmFhbf4GXrXxWX_aRMTlbw"><img src="resimler/youtube.png" alt="Youtube Kanalım" width="40px" height="30px"></a>
-            </div>
-            <div class="col-1">
-              <a href="https://github.com/burakkozluca"><img src="resimler/github.png" alt="Git Hub Profilim" width="80px" height="30px"></a>
-            </div>
-          </div>
-          <div class="col-12 padding">
-             </div>
-        </div>
-    </article>
-    
-    <footer>
-  <div class="container-fluid padding">
-    <div class="row text-center">
-      <div class="col-12">
-        <hr class="light">
-        <p>burakkozluca@ogr.sakarya.edu.tr</p>
-        <p>Kocaeli/İzmit</p>
-      </div>
-      <div class="col-12">
-        <hr class="light">
-        <h5>&copy; burakkozluca.com</h5>
-      </div>
-    </div>
-  </div>
-    </footer>
-  </body>
+success : function(resultObj){
+ if (resultObj && resultObj.statusMsg == "OK") {
+ let jsonArr = resultObj.data;
+ if (jsonArr) {
+ let size = jsonArr.length
+ let rowIndex = 1;
+  for(let dataIndex = 0; dataIndex < size; dataIndex++){
+  rowIndex++;
+  let row = table.insertRow(rowIndex);
+  //state name
+  let stateName = row.insertCell(0);
+  //total cases
+  let totalCases = row.insertCell(1);
+  //active cases
+  let activeCases = row.insertCell(2);
+  //New Cases
+  let newCases = row.insertCell(3);
+  //Total Death
+  let deaths = row.insertCell(4);
+  // New Death
+  let newDeaths = row.insertCell(5);
+  //Total Recovered
+  let recovered = row.insertCell(6);
+  //New Recovered
+  let newRecovered = row.insertCell(7);
+  //data last updated from source
+  let lastUpdated = row.insertCell(8);
+       
+  stateName.innerHTML = jsonArr[dataIndex].name;
+  totalCases.innerHTML = jsonArr[dataIndex].confirmed;
+  activeCases.innerHTML = jsonArr[dataIndex].active;
+  let newCasesFromResponse = Number(jsonArr[dataIndex].newconfirmed);
+        //only if new cases are greater than 0 a background color is given.
+        //if new cases are 0 then the cell is left empty
+  if(newCasesFromResponse > 0)
+  {
+   newCases.innerHTML = "+"+jsonArr[dataIndex].newconfirmed;
+  }
+       
+  deaths.innerHTML = jsonArr[dataIndex].deaths;
+        //only if new deaths are greater than 0 a background color is given. 
+        //if  new deaths are 0 then the cell is left empty
+  let newDeathsFromResponse = Number(jsonArr[dataIndex].newdeaths);
+  if(newDeathsFromResponse > 0)
+  {
+   newDeaths.innerHTML = "+"+jsonArr[dataIndex].newdeaths;
+  }
+  recovered.innerHTML = jsonArr[dataIndex].recovered;
+        //only if new recovered is greater than 0 a background color is given. 
+        //if  new recovered is 0 then the cell is left empty
+  let newRecoveredFromResponse = Number(jsonArr[dataIndex].newrecovered);
+  if(newRecoveredFromResponse > 0)
+  {
+   newRecovered.innerHTML = "+"+jsonArr[dataIndex].newrecovered;
+  }
+        // to convert to DD-MMM-YYYY HH:mm:ss date format.
+        //moment.js is mandatory to be included for this
+        let formattedDate = moment(jsonArr[dataIndex].lastupdatedtime,
+            "YYYY-MM-DD HH:mm:ss").format("DD-MMM-YYYY HH:mm:ss");
+        lastUpdated.innerHTML = formattedDate;
+  }
+   }
+ } 
+ },
+ error : function() {
+ }
+ });
+}
+</script>
 </html>
+
  

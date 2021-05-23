@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="icon" href="resimler/BK_logo.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="iletisim_body">
+    <div class="iletisim_formu">     
+        <div class="container-fluid">
+            <div class="container">
+                <h3>İletişim Formu</h3>
+            <form action="iletisim.php" method="POST">
+              <label for="ad">Adınız</label>
+              <input type="text" id="ad" name="ad" placeholder="Adınız.." required>
+          
+              <label for="soyad">Soyadınız</label>
+              <input type="text" id="soyad" name="soyad" placeholder="Soyadınız.." required>
+
+              <label for="mail">Email</label><br>
+              <input type="email" name="mail" id="mail" placeholder="E-mail" required><br>
+
+              <label for="telefon">Telefon Numaranız</label><br>
+              <input type="tel" id="telefon" name="telefon" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="145-145-5678" required><br>
+          
+              <label for="country">Yaşadığınız Ülke</label>
+              <select id="ulke" name="ulke" required>
+                <option value="Türkiye">Türkiye</option>
+                <option value="Kanada">Kanada</option>
+                <option value="ABD">ABD</option>
+                <option value="Almanya">Almanya</option>
+                <option value="İngiltere">İngiltere</option>
+              </select>
+
+              <label for="gender">Cinsiyet</label><br>
+              <input type="radio" value="Erkek" name="cinsiyet" id="cinsiyet" required checked>Erkek <br>
+              <input type="radio" value="Kadin" name="cinsiyet" id="cinsiyet" required>Kadın <br>
+
+              <label for="languages">Bildiğiniz Yabancı Diller</label> <br>
+              <input type="checkbox" name="lang1" id="lang1" value="İngilizce"> İngilizce <br>
+              <input type="checkbox" name="lang2" id="lang2" value="Almanca"> Almanca <br>
+              <input type="checkbox" name="lang2" id="lang2" value="Çince"> Çince <br>
+
+              <label for="yas">Yaşınız</label><br>
+              <input type="number" name="yas" id="yas" max="150" required><br>
+
+              <label for="subject">Mesajınız</label>
+              <textarea id="subject" name="subject" placeholder="Bir şeyler yazınız.." style="height:200px"></textarea>
+          
+              <a href="iletisim.php"><input type="submit" value="GÖNDER"></a>
+              <input type="reset" value="TEMİZLE"><br>
+              
+            </form><br>
+            <a href="sehrim.html"><button id="btn_iletisim">ANA SAYFAYA DÖN</button></a>
+            </div>
+        </div>
+    </div> 
+    </div>  
+  </body>
+</html>
+ 

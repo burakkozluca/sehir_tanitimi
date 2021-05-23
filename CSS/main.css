@@ -115,59 +115,183 @@ footer{
   opacity: 1;
   
 }
-.havadurumuapp{
-  font-family: 'montserrat', sans-serif;
-  color: #fff;
-  background-image: url("resimler/basketbol.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: rgba(0,0,0,.7);
-}
-.havadurumuheader{
-  padding: 50px 20px 30px 20px;
-}
-.havadurumuheader h1{
-  font-size: 50px;
-  color: #fbb034;
-  text-shadow: 1px 3px rgba(0,0,0,.9); 
-}  
-.havadurumuheader input{
+
+.iletisim_formu * {box-sizing: border-box;}
+
+.iletisim_formu input[type=text], select, textarea {
   width: 100%;
-  padding: 10px;
-  background: transparent;
-  border: 0;
-  outline: 0;
-  border-bottom: 2px solid #fbb034;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.iletisim_formu input[type=radio],input[type=checkbox],input[type=number],input[type=tel],input[type=email]{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  padding: 12px;
+}
+.iletisim_formu input[type=submit],input[type=reset],#btn_iletisim {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.iletisim_formu input[type=submit]:hover,input[type=reset]:hover,#btn_iletisim:hover {
+  background-color: #45a049;
+}
+
+.iletisim_formu .container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  position: sticky;
+}
+.iletisim_formu h3{
+  padding-left: 40%;
+}
+.wrapper {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.statistic {
+  width: 100%;
+}
+
+.total_case_box {
+  background-color: #fafafa;
+  box-shadow: 2px 2px 8px rgba(30,30,30,.2);
+  margin: 10px 15px;
+  padding: 15px 0;
   text-align: center;
-  font-size: 20px;
-  color: #f2f2f2;  
+  text-transform: uppercase;
 }
-.city{
-  font-size: 35px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  text-shadow: 1px 3px rgba(0,0,0,.8);
+
+.total_case_box p {
+  font-size: 3rem;
 }
-.temp{
-  font-size: 100px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  text-shadow: 1px 5px rgba(0,0,0,1);  
+
+.wrapper .box_wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
-.desc{
-  font-size: 25px;
-  font-style: italic;
-  margin-bottom: 10px;
-  text-shadow: 1px 3px rgba(0,0,0,.8);
+
+.box_wrapper .box {
+  background-color: #fafafa;
+  box-shadow: 2px 2px 8px rgba(30,30,30,.2);
+  margin: 10px 15px;
+  width:25%;
+  text-align: center;
+  padding: 15px 0;
+  border-radius: 8px;
+  text-transform: uppercase;
 }
-.city{
-  font-size: 24px;
-  text-shadow: 1px 3px rgba(0,0,0,.8);
+
+.box_wrapper .box p {
+  font-size: 2.5rem;
+}
+
+/*Styiling the table*/
+table {
+  width: 100%;
+  padding: 15px 10px;
+  margin: 10px 0;
+  text-align: center;
+  border-spacing: 0;
+}
+
+tr:first-child {
+  background-color: #37474f;
+  color: #fafafa;
+  text-transform: uppercase;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+th {
+  padding: 15px 0;
+  border: none;
+  border-spacing: 0;
+  cursor: default;
+}
+
+th:not(:first-child) {
+  cursor: n-resize;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tr:nth-child(odd) {
+  background-color: #424242;
+  color: #fafafa;
+}
+
+tr td {
+  padding: 15px 0;
+}
+
+tr td:first-of-type {
+  position: relative;
+}
+
+tr td:first-of-type::before {
+  counter-increment: raw;
+  content: counter(raw);
+  position: absolute;
+  left: 4px;
+  opacity: .5;
+}
+
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 0.6rem;
+  }
+  th {
+    font-size: 0.6rem;
+  }
+  td {
+    font-size: 0.8rem;
+  }
+  .total_case_box p {
+    font-size: 1.5rem;
+  }
+  .box_wrapper .box p {
+    font-size: 1rem;
+  }
+  .wrapper{
+    width: 100%;
+  }
+  .total_case_box {
+    box-shadow: 2px 2px 8px rgba(30,30,30,.2);
+    margin: 0;
+    padding: 15px 0;
+  }
+  .box_wrapper .box {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 7px 0;
+  }
+  table {
+    padding: 0;
+    margin: 0;
+  }
 }
 
